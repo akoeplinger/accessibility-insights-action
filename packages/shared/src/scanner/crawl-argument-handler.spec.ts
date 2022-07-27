@@ -29,6 +29,9 @@ describe(CrawlArgumentHandler, () => {
         url: 'url',
         singleWorker: false,
         baselineFile: null,
+        serviceAccountName: 'testName',
+        serviceAccountPassword: 'placeholder_password',
+        authType: 'AAD',
     };
 
     beforeEach(() => {
@@ -151,5 +154,8 @@ describe(CrawlArgumentHandler, () => {
         taskConfigMock.setup((m) => m.getUrl()).returns((_) => args.url);
         taskConfigMock.setup((m) => m.getSingleWorker()).returns((_) => args.singleWorker);
         taskConfigMock.setup((m) => m.getBaselineFile()).returns((_) => args.baselineFile);
+        taskConfigMock.setup((m) => m.getServiceAccountName()).returns((_) => args.serviceAccountName);
+        taskConfigMock.setup((m) => m.getServiceAccountPassword()).returns((_) => args.serviceAccountPassword);
+        taskConfigMock.setup((m) => m.getAuthType()).returns((_) => args.authType);
     }
 });
