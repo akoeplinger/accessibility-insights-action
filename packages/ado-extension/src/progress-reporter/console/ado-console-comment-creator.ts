@@ -105,12 +105,8 @@ export class AdoConsoleCommentCreator extends ProgressReporter {
             this.logger.logStartGroup(`Uploading output artifact: ${artifactName}`);
 
             this.logger.logInfo(`##vso[artifact.upload artifactname=${artifactName}]${outputDirectory}/index.html`);
-            this.logger.logInfo(
-                `##vso[artifact.upload containerfolder=key_value_stores;artifactname=${artifactName}]${outputDirectory}/key_value_stores`,
-            );
-            this.logger.logInfo(
-                `##vso[artifact.upload containerfolder=request_queues;artifactname=${artifactName}]${outputDirectory}/request_queues`,
-            );
+            this.logger.logInfo(`##vso[artifact.upload artifactname=${artifactName}_key_value_stores]${outputDirectory}/key_value_stores`);
+            this.logger.logInfo(`##vso[artifact.upload artifactname=${artifactName}_request_queues]${outputDirectory}/request_queues`);
 
             this.logger.logEndGroup();
         }
