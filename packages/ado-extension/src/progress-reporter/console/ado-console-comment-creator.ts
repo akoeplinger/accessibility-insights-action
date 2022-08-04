@@ -102,13 +102,7 @@ export class AdoConsoleCommentCreator extends ProgressReporter {
     private uploadOutputArtifact(artifactName: string | null): void {
         if (artifactName != null) {
             const outputDirectory = this.taskConfig.getReportOutDir();
-            this.logger.logStartGroup(`Uploading output artifact: ${artifactName}`);
-
             this.logger.logInfo(`##vso[artifact.upload artifactname=${artifactName}]${outputDirectory}/index.html`);
-            this.logger.logInfo(`##vso[artifact.upload artifactname=${artifactName}_key_value_stores]${outputDirectory}/key_value_stores`);
-            this.logger.logInfo(`##vso[artifact.upload artifactname=${artifactName}_request_queues]${outputDirectory}/request_queues`);
-
-            this.logger.logEndGroup();
         }
     }
 
